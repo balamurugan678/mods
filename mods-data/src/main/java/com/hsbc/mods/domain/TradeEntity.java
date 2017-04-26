@@ -25,7 +25,7 @@ public class TradeEntity implements Serializable{
     @Column
     private String trading_style;
 
-    @CreatedDate
+    @Column
     private Date submission_date;
 
     public Long getTrade_id() {
