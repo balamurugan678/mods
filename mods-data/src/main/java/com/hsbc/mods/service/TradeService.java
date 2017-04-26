@@ -13,5 +13,4 @@ public interface TradeService {
 
     TradeEntity find(Long id);
 
-    Collection<TradeEntity> findAll();
 }

@@ -1,7 +1,9 @@
 package com.hsbc.mods.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.hsbc.mods.domain.TradeEntity;
+import com.hsbc.mods.service.TradeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Bala on 26/04/2017.
@@ -9,9 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ModsController {
 
-    @RequestMapping("/")
-    String home() {
-        return "Hello World!!!!--HEY";
+    @Autowired
+    private TradeService tradeService;
+
+    @RequestMapping(value = "/trade/{tradeId}", method = RequestMethod.GET)
+    public TradeEntity getTrade(@PathVariable String tradeId) {
+        TradeEntity tradeEntity = tradeService.find(Long.valueOf(tradeId));
+        return tradeEntity;
+    }
+
+    @RequestMapping(value = "/trade", method = RequestMethod.POST)
+    public String createTrade(@RequestBody TradeEntity tradeEntity) {
+        TradeEntity persistedTradeEntity =  tradeService.save(tradeEntity);
+        return "Done";
     }
 
 

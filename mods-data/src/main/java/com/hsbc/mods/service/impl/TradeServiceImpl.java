@@ -26,12 +26,9 @@ public class TradeServiceImpl implements TradeService {
 
     @Override
     public TradeEntity find(Long id) {
-        return repository.findOne(id);
+        TradeEntity tradeEntity = repository.findOne(id);
+        return tradeEntity;
     }
 
-    @Override
-    public Collection<TradeEntity> findAll() {
-        return repository.findAll();
 
-    }
 }

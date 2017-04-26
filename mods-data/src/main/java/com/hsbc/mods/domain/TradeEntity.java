@@ -11,6 +11,7 @@ import java.util.Date;
  * Created by Bala on 26/04/2017.
  */
 @Entity
+@Table(name = "dsl_trades")
 @EntityListeners(AuditingEntityListener.class)
 public class TradeEntity implements Serializable{
 
